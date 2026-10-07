@@ -18,10 +18,28 @@ WP386: A theme to make your blog look like some sort of thing from the future. B
 
 */
 
-@import './bootstrap';
-@import './bootstrap_additions';
+@import 'bootstrap/scss/functions';
+@import 'variables';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
 
-@import './themes/blackonwhite';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/tables';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+
+@import 'retro';
+@import 'themes/blackonwhite';
 
 /* Alignment */
 .alignleft {
@@ -252,8 +270,6 @@ object {
   box-sizing: border-box;
 }
 
-// Button mixin usage
-
 .comments-link > a,
 .edit-link > a,
 .form-submit > #submit {
@@ -266,14 +282,15 @@ object {
   @extend .page-header;
 }
 
-// Widgets
+// Bottom widget area: a row of 144px widgets
 
 .widget-area {
-  @extend .row;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
 
   aside.widget {
-    @extend %span;
-    @extend .span2;
+    width: 144px;
   }
 }
 
@@ -285,47 +302,46 @@ object {
   }
 }
 
-// Sidebar
-
-.sidebar-affix {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-}
-
-.sidebar-outer {
-  margin-top: 28px;
-  position: absolute;
-  top: 0;
-  bottom: 30px;
-
-  body.admin-bar & {
-    margin-top: 28px + 28px;
-  }
-
-  body.admin-bar.mp6 & {
-    margin-top: 28px + 32px;
-  }
-}
+// Sidebar: pinned to the viewport on wide screens, stacked above content otherwise
 
 .sidebar-container {
-  max-height: 100%;
-
-  // span3
-  width: 224px;
-
-  overflow-y: auto;
-  overflow-x: hidden;
-
   @extend %shadowed-box;
   @extend .border-box;
+
+  margin-bottom: 14px;
+}
+
+@include media-breakpoint-up(lg) {
+  .sidebar-affix {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+
+  .sidebar-outer {
+    margin-top: 28px;
+    position: absolute;
+    top: 0;
+    bottom: 30px;
+
+    body.admin-bar & {
+      margin-top: 28px + 32px;
+    }
+  }
+
+  .sidebar-container {
+    max-height: 100%;
+    width: 224px; // col-lg-3
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 0;
+  }
 }
 
 // Menus
 
-.nav {
+.navbar-nav {
   .dropdown {
-
     > a {
       &::after {
         content: "▼";
@@ -333,11 +349,8 @@ object {
       }
     }
 
-    ul.dropdown-menu {
-      > li { list-style-type: none; }
-
-      // level 3 and deeper
-
+    // level 3 and deeper
+    .dropdown-menu {
       .dropdown {
         > a {
           &::after {
@@ -352,7 +365,6 @@ object {
         }
       }
     }
-
   }
 }
 
@@ -363,32 +375,27 @@ object {
   margin-bottom: 14px;
 }
 
-body.admin-bar .navbar-fixed-top {
-  top: 28px;
-}
-
-body.admin-bar.mp6 .navbar-fixed-top {
+body.admin-bar .fixed-top {
   top: 32px;
+
+  @media (max-width: 782px) {
+    top: 46px;
+  }
 }
 
 // Footers
 
 footer {
-
   &.site-footer {
     margin-bottom: 5px;
   }
 
-  &.entry-meta {
-
-    &::before {
-      content: "";
-      display: block;
-
-      @extend hr;
-    }
+  &.entry-meta::before {
+    content: "";
+    display: block;
+    margin: 6px 0 7px;
+    border-top: 1px solid #bbb;
   }
-
 }
 
 // Articles
@@ -398,10 +405,8 @@ article.post {
   word-wrap: break-word;
 
   &.sticky {
-
     .page-header {
       background-color: #0A0;
     }
-
   }
 }

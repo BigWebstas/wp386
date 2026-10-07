@@ -1,0 +1,15 @@
+{
+  "name": "wp386",
+  "version": "1.2.0",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "description": "A WordPress theme to make your blog look like some sort of thing from the future.",
+  "scripts": {
+    "build": "sass --no-source-map --style=expanded --load-path=node_modules --quiet-deps --silence-deprecation=import sass/style.scss style.css",
+    "watch": "npm run build -- --watch"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.93.0"
+  }
+}

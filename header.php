@@ -25,15 +25,13 @@
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="brand"><?php bloginfo( 'name' ); ?></a>
-					<?php $walker = new Bootstrap_Nav_Menu_Walker(); ?>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav', 'walker' => $walker, 'fallback_cb' => '' ) ); ?>
-				</div>
+		<nav class="navbar navbar-expand fixed-top">
+			<div class="container">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="navbar-brand"><?php bloginfo( 'name' ); ?></a>
+				<?php $walker = new Bootstrap_Nav_Menu_Walker(); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'navbar-nav', 'walker' => $walker, 'fallback_cb' => '' ) ); ?>
 			</div>
-		</div>
+		</nav>
 
 	</header><!-- #masthead -->
 
@@ -41,7 +39,7 @@
 
 		<?php if (is_active_sidebar( 'sidebar-1' )): ?>
 			<div class="row">
-				<div class="span3">
+				<div class="col-lg-3">
 					<div class="sidebar-affix">
 						<div class="sidebar-outer">
 							<div class="sidebar-container">
@@ -50,7 +48,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="span9">
+				<div class="col-lg-9">
 			<?php else: ?>
-				<div class="span12">
+				<div class="row">
+					<div class="col-12">
 			<?php endif; ?>
