@@ -68,6 +68,9 @@ class Bootstrap_Nav_Menu_Walker extends Walker_Nav_Menu {
     $classes = empty( $item->classes ) ? array() : (array) $item->classes;
     $classes[] = 'menu-item-' . $item->ID;
 
+    if ( 0 === $depth )
+      $classes[] = 'nav-item';
+
     if ( $args->has_children )
       $classes[] = 'dropdown';
 
@@ -84,6 +87,7 @@ class Bootstrap_Nav_Menu_Walker extends Walker_Nav_Menu {
     $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
     $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
     $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+    $atts['class']  = $depth ? 'dropdown-item' : 'nav-link';
 
     $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 

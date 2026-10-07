@@ -1,48 +1,28 @@
-jQuery(function($) {
+// Open dropdown menus on hover, with a short delay before closing.
+document.addEventListener('DOMContentLoaded', function() {
   var DELAY = 200;
 
-  $('.nav .menu-item.dropdown').each( function() {
-    var $dropdown = $(this);
-    var menuVisible = false, currentTimeout = -1;
+  document.querySelectorAll('.navbar-nav .menu-item.dropdown').forEach(function(dropdown) {
+    var link = dropdown.querySelector(':scope > a');
+    var menu = dropdown.querySelector(':scope > ul.dropdown-menu');
+    var timeout;
 
-    var $link = $dropdown.children('a');
-    var $hoverContents = $dropdown.children('ul.dropdown-menu');
-
-    var showMenu = function() {
-      if (!menuVisible) {
-        menuVisible = true;
-        $hoverContents.show();
-        $link.addClass('hover');
-      } else {
-        window.clearTimeout(currentTimeout);
-      }
+    function show() {
+      window.clearTimeout(timeout);
+      menu.classList.add('show');
+      link.classList.add('hover');
     }
 
-    var hideMenu = function() {
-      if (menuVisible) {
-        currentTimeout = window.setTimeout(function() {
-          menuVisible = false;
-          $hoverContents.hide();
-          $link.removeClass('hover');
-        }, DELAY);
-      }
+    function hide() {
+      timeout = window.setTimeout(function() {
+        menu.classList.remove('show');
+        link.classList.remove('hover');
+      }, DELAY);
     }
 
-    $link.hover(function(e) {
-      // Hover in
-      showMenu();
-    }, function(e) {
-      // Hover out
-      hideMenu();
+    [link, menu].forEach(function(el) {
+      el.addEventListener('mouseenter', show);
+      el.addEventListener('mouseleave', hide);
     });
-
-    $hoverContents.hover(function(e) {
-      // Hover in
-      showMenu();
-    }, function(e) {
-      // Hover out
-      hideMenu();
-    });
-
   });
 });

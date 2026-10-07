@@ -10,15 +10,14 @@ wp386 is a WordPress theme based on the Bootstrap theme [BOOTSTRA.386](https://g
 How to Install
 ==============
 
-wp386 uses Sass to compile SCSS. `style.css` is not committed, so you must generate it.
-
-Run the following command to generate `style.css` (requires Node.js):
+wp386 uses [Bootstrap 5](https://getbootstrap.com/) and Sass. `style.css` is not committed, so you must generate it (requires Node.js):
 
 ```
-$ npx sass --no-source-map sass/style.scss style.css
+$ npm install
+$ npm run build
 ```
 
-Compass is no longer needed.
+Use `npm run watch` to rebuild on changes.
 
 Version History
 ===============
@@ -28,7 +27,9 @@ Version History
 * Updated for current WordPress: title-tag, HTML5 and block-editor support, `wp_body_open()`
 * PHP 8 compatible nav walker; sanitized and translatable customizer option
 * Fix: mismatched comments heading tags; HTTPS links
-* Build: compile CSS with Dart Sass (`npx sass`) instead of Compass
+* Bootstrap 2.3.1 replaced by Bootstrap 5.3 (installed via npm); the retro look is rebuilt on top of it
+* Build: Dart Sass via `npm run build` instead of Compass; dropdown menus no longer need jQuery
+* Fix: unbalanced layout markup when the sidebar is empty
 
 ## Version 1.1
 

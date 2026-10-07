@@ -1,0 +1,81 @@
+// Bootstrap 5 variable overrides: the retro "386" look.
+
+$enable-rounded: false;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-dark-mode: false;
+$enable-transitions: false;
+$enable-smooth-scroll: false;
+
+$font-family-base: fixedsysttfmonospaced, monaco, menlo, consolas, "courier new", monospace;
+$font-family-monospace: $font-family-base;
+$font-size-base: 13px;
+$line-height-base: 1.0769; // 14px
+$font-weight-base: normal;
+$font-weight-bold: normal;
+
+$body-bg: #000084;
+$body-color: #bbb;
+
+$link-color: #fefe54;
+$link-hover-color: #fefe54;
+$link-decoration: none;
+$link-hover-decoration: none;
+
+$headings-color: #fff;
+$headings-font-weight: normal;
+$headings-margin-bottom: 0;
+$headings-line-height: 1.0769;
+$h1-font-size: $font-size-base;
+$h2-font-size: $font-size-base;
+$h3-font-size: $font-size-base;
+$h4-font-size: $font-size-base;
+$h5-font-size: $font-size-base;
+$h6-font-size: $font-size-base;
+$paragraph-margin-bottom: 14px;
+
+// 960px container, 16px gutters: a 3/9 split gives the 224px sidebar and 704px content
+$grid-gutter-width: 16px;
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px);
+
+$hr-margin-y: 6px;
+$hr-color: #bbb;
+$hr-opacity: 1;
+$hr-border-width: 1px;
+
+$input-bg: #fff;
+$input-color: #000;
+$input-border-color: #ccc;
+$input-padding-y: 4px;
+$input-padding-x: 6px;
+$input-font-size: $font-size-base;
+$input-line-height: 1.0769;
+
+$btn-padding-y: 0;
+$btn-padding-x: 14px;
+$btn-font-size: $font-size-base;
+$btn-line-height: 1.0769;
+$btn-border-width: 0;
+
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-brand-padding-y: 0;
+$navbar-brand-margin-end: 0;
+$navbar-brand-font-size: $font-size-base;
+$navbar-nav-link-padding-x: 14px;
+$nav-link-padding-y: 0;
+$nav-link-padding-x: 14px;
+
+$dropdown-bg: #bbb;
+$dropdown-color: #000;
+$dropdown-padding-y: 7px;
+$dropdown-border-color: #000;
+$dropdown-spacer: 6px;
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 8px;
+$dropdown-font-size: $font-size-base;
+$dropdown-link-color: #000;
+$dropdown-link-hover-color: #fff;
+$dropdown-link-hover-bg: #a50;
+$dropdown-link-active-color: #000;
+$dropdown-link-active-bg: #fefe4a;

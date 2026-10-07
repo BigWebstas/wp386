@@ -1,0 +1,260 @@
+// The retro skin: styling that goes beyond Bootstrap's variables.
+
+@font-face {
+  font-family: 'fixedsysttfmonospaced';
+  src: url('fonts/fixedsys500c-webfont.eot');
+  src: url('fonts/fixedsys500c-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/fixedsys500c-webfont.woff') format('woff'),
+       url('fonts/fixedsys500c-webfont.ttf') format('truetype'),
+       url('fonts/fixedsys500c-webfont.svg#fixedsysttfmonospaced') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%shadowed-box {
+  padding: 14px 16px;
+  margin-bottom: 0;
+  box-shadow: 8px 7px 0 0 #000;
+  background: #555;
+  color: #fff;
+}
+
+a:hover,
+a:focus {
+  background: #a50;
+}
+
+strong,
+b,
+em,
+i {
+  color: #fff;
+  font-weight: normal;
+}
+
+em,
+i,
+cite,
+var,
+address,
+dfn {
+  font-style: normal;
+
+  &::before,
+  &::after {
+    content: "/";
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  white-space: nowrap;
+}
+
+h3::before {
+  content: ">>> ";
+}
+
+h3::after {
+  content: " <<<";
+}
+
+h4 {
+  color: #fe54fe;
+}
+
+ul,
+ol {
+  margin: 0 0 14px;
+  padding-left: 28px;
+}
+
+li {
+  line-height: 14px;
+}
+
+ul > li {
+  list-style-type: disc;
+}
+
+ol > li {
+  list-style-type: decimal;
+}
+
+dd {
+  margin-left: 14px;
+}
+
+hr {
+  border-top-width: 0;
+  margin: 6px 0 7px;
+}
+
+blockquote {
+  margin: 0 0 14px;
+  padding: 0 0 0 15px;
+  border-left: 5px solid #bbb;
+}
+
+code,
+pre {
+  color: #fff;
+  background: #000;
+  border: 0;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
+pre {
+  padding: 6.5px;
+  margin: 0 0 7px;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted #bbb;
+  text-decoration: none;
+}
+
+.page-header {
+  padding: 14px 24px;
+  margin: 14px 0;
+  background: #0aa;
+
+  h1 {
+    color: #000;
+  }
+}
+
+legend {
+  font-size: 19.5px;
+  line-height: 28px;
+  color: #555;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="search"] {
+  box-sizing: content-box;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="number"] {
+  display: inline-block;
+  height: 14px;
+  margin-bottom: 7px;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-sizing: content-box;
+}
+
+textarea {
+  height: auto;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+  background-color: #bbb;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #{$body-color};
+  margin-bottom: 14px;
+}
+
+.btn {
+  margin-bottom: 14px;
+  background: #bbb;
+  color: #000;
+  box-shadow: 8px 7px 0 #000;
+
+  &::before {
+    content: "< ";
+  }
+
+  &::after {
+    content: " >";
+  }
+
+  &:hover,
+  &:focus {
+    background: #bbb;
+    color: #fff;
+  }
+}
+
+.navbar {
+  margin-bottom: 14px;
+  background: #000;
+  color: #fff;
+}
+
+.navbar-brand {
+  padding: 0 14px;
+  margin-left: -8px;
+  color: #f5f;
+
+  &:hover,
+  &:focus {
+    color: #f5f;
+  }
+}
+
+.navbar > .container {
+  justify-content: flex-start;
+}
+
+.navbar-nav,
+.dropdown-menu {
+  li {
+    list-style-type: none;
+  }
+}
+
+.navbar-nav {
+  --bs-nav-link-color: #fff;
+  --bs-nav-link-hover-color: #000;
+  --bs-navbar-active-color: #000;
+  --bs-nav-link-font-size: #{$font-size-base};
+
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link.hover,
+  .current-menu-item > .nav-link {
+    color: #000;
+    background: #bbb;
+  }
+}
+
+.dropdown-menu {
+  margin: 6px 4px 8px 8px;
+  border-width: 1px;
+  box-shadow: 0 0 0 8px #bbb;
+  background-clip: border-box;
+}
+
+.dropdown-item {
+  line-height: 14px;
+
+  &:hover,
+  &:focus,
+  &.hover {
+    color: #fff;
+    background: #a50;
+  }
+}
