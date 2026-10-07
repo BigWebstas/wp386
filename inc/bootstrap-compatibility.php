@@ -16,7 +16,7 @@
  */
 class Bootstrap_Nav_Menu_Walker extends Walker_Nav_Menu {
 
-  function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+  function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
     $id_field = $this->db_fields['id'];
 
     if ( is_object( $args[0] ) ) {
