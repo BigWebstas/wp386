@@ -10,22 +10,25 @@ wp386 is a WordPress theme based on the Bootstrap theme [BOOTSTRA.386](https://g
 How to Install
 ==============
 
-wp386 uses Compass to compile SCSS.
+wp386 uses Sass to compile SCSS. `style.css` is not committed, so you must generate it.
 
-If you don't have `compass` installed:
-
-```
-$ gem install compass
-```
-
-Run the following command to generate `style.css`.
+Run the following command to generate `style.css` (requires Node.js):
 
 ```
-$ compass compile
+$ npx sass --no-source-map sass/style.scss style.css
 ```
+
+Compass is no longer needed.
 
 Version History
 ===============
+
+## Version 1.2
+
+* Updated for current WordPress: title-tag, HTML5 and block-editor support, `wp_body_open()`
+* PHP 8 compatible nav walker; sanitized and translatable customizer option
+* Fix: mismatched comments heading tags; HTTPS links
+* Build: compile CSS with Dart Sass (`npx sass`) instead of Compass
 
 ## Version 1.1
 

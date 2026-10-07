@@ -21,6 +21,7 @@ function wp386_customize_register( $wp_customize ) {
       'default' => $options['color_combination'],
       'type' => 'option',
       'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'wp386_sanitize_color_combination',
       'transport' => 'postMessage'
     )
   );
@@ -32,12 +33,19 @@ function wp386_customize_register( $wp_customize ) {
     'priority'   => 10,
     'type'       => 'radio',
     'choices'    => array(
-      'default' => 'Default Color Scheme',
-      'blackonwhite' => 'Dark Text / Light Background'
+      'default' => __('Default Color Scheme', 'wp386'),
+      'blackonwhite' => __('Dark Text / Light Background', 'wp386')
     ),
   ) );
 }
 add_action( 'customize_register', 'wp386_customize_register' );
+
+/**
+ * Only allow known color combinations.
+ */
+function wp386_sanitize_color_combination( $value ) {
+	return in_array( $value, array( 'default', 'blackonwhite' ), true ) ? $value : 'default';
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

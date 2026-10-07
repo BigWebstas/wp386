@@ -116,6 +116,7 @@ if ( ! function_exists( 'wp386_the_attached_image' ) ) :
 function wp386_the_attached_image() {
 	$post                = get_post();
 	$attachment_size     = apply_filters( 'wp386_attachment_size', array( 1200, 1200 ) );
+	$next_id             = 0;
 	$next_attachment_url = wp_get_attachment_url();
 
 	/**
