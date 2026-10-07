@@ -209,6 +209,11 @@ textarea[disabled] {
   margin-left: -8px;
   color: #f5f;
 
+  // keep the navbar one line tall so the sidebar never overlaps it
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   &:hover,
   &:focus {
     color: #f5f;
