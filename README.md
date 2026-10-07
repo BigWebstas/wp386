@@ -22,6 +22,10 @@ Use `npm run watch` to rebuild on changes.
 Version History
 ===============
 
+## Version 1.2.1
+
+* Fix: navbar was not pinned to the top, so the sidebar could cover it
+
 ## Version 1.2
 
 * Updated for current WordPress: title-tag, HTML5 and block-editor support, `wp_body_open()`
